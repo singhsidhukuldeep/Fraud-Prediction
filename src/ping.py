@@ -1,4 +1,4 @@
-def response_ping():
+def response_ping(*args):
     """
     Return ping
     :return: Success Message

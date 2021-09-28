@@ -48,7 +48,7 @@ r = requests.post(
     "http://127.0.0.1:8000/is-fraud",
     json={
         "step": 1,
-        "type": 'TRANSFER',
+        "type": "TRANSFER",
         "amount": 9839.64,
         "nameOrig": "C1231006815",
         "oldbalanceOrig": 170136.0,

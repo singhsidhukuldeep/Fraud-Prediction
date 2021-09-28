@@ -32,13 +32,19 @@ app = FastAPI()
 
 
 @app.get("/ping")
-async def ping_get():
-    return src.ping.response_ping()
+async def ping_get(db: Session = Depends(src.db_process.get_db)):
+    cnt = db.query(func.count(src.db_process.apiCalls.id)).scalar()
+    ret = src.ping.response_ping()
+    ret["db_count"] = cnt
+    return ret
 
 
 @app.post("/ping")
-async def ping_post():
-    return src.ping.response_ping()
+async def ping_post(db: Session = Depends(src.db_process.get_db)):
+    cnt = db.query(func.count(src.db_process.apiCalls.id)).scalar()
+    ret = src.ping.response_ping()
+    ret["db_count"] = cnt
+    return ret
 
 
 @app.get("/reset")
