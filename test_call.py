@@ -47,8 +47,8 @@ print("POST is-fraud", r.status_code, r.json())
 r = requests.post(
     "http://127.0.0.1:8000/is-fraud",
     json={
-        "step": 2,
-        "type": "PAYMENTT",
+        "step": 1,
+        "type": 'TRANSFER',
         "amount": 9839.64,
         "nameOrig": "C1231006815",
         "oldbalanceOrig": 170136.0,
